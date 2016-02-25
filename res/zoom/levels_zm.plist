@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+    <dict>
+        <key>1</key>
+        <dict>
+            <key>NAME</key>
+            <string>CASTLE</string>
+            <key>IMAGE</key>
+            <string>games_lance/zoom_dummy_300x300.png</string>
+            <key>ANSWER</key>
+            <string>CASTLE</string>
+        </dict>
+    </dict>
+    <dict>
+        <key>2</key>
+        <dict>
+            <key>NAME</key>
+            <string>Twiggy</string>
+            <key>IMAGE</key>
+            <string>games_lance/Mrs. Stick -Twiggy.jpg</string>
+            <key>ANSWER</key>
+            <string>TWIGGY</string>
+        </dict>
+    </dict>
+    <dict>
+        <key>3</key>
+        <dict>
+            <key>NAME</key>
+            <string>PowerPot</string>
+            <key>IMAGE</key>
+            <string>games_lance/PowerPot V.jpg</string>
+            <key>ANSWER</key>
+            <string>PWOERPOT</string>
+        </dict>
+    </dict>		
+</plist>

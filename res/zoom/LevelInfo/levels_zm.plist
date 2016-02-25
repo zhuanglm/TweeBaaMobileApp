@@ -1,0 +1,234 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+    <dict>
+        <key>ZOOM</key>
+        <dict>
+            <key>1</key>
+            <dict>
+                <key>NAME</key>
+                <string>Taft Men's Socks - Wall Street Soldier Sock</string>
+                <key>IMAGE</key>
+                <string>res/Level_Image/FL_LI_SoldierSock_image.jpg</string>
+                <key>ANSWER</key>
+                <string>SOCKS</string>
+            </dict>
+            <key>2</key>
+            <dict>
+                <key>NAME</key>
+                <string>AceCamp 3 LED Headlamp</string>
+                <key>IMAGE</key>
+                <string>res/Level_Image/18_FL_SH_ZO_LI_Headlamp_imageA.jpg</string>
+                <key>ANSWER</key>
+                <string>HEADLAMP</string>
+            </dict>
+            <key>3</key>
+            <dict>
+                <key>NAME</key>
+                <string>Kitty Litty</string>
+                <key>IMAGE</key>
+                <string>res/Level_Image/4_SPOT_level7_Kittylitty_imageA.jpg</string>
+                <key>ANSWER</key>
+                <string>LITTERBOX</string>
+            </dict>
+            <key>4</key>
+            <dict>
+                <key>NAME</key>
+                <string>WOMENS CAPRI SCRUNCH PANT</string>
+                <key>IMAGE</key>
+                <string>res/Level_Image/FL_ZO_LI_Capris_imageB.jpg</string>
+                <key>ANSWER</key>
+                <string>CAPRIS</string>
+            </dict>
+            <key>5</key>
+            <dict>
+                <key>NAME</key>
+                <string>Clutch Wrap</string>
+                <key>IMAGE</key>
+                <string>res/Level_Image/13_FL_SH_LI_OrangeSparrow_imageB.jpg</string>
+                <key>ANSWER</key>
+                <string>SCARF</string>
+            </dict>
+            <key>6</key>
+            <dict>
+                <key>NAME</key>
+                <string>Oil Painting on Canvas (103S)</string>
+                <key>IMAGE</key>
+                <string>res/Level_Image/FL_ZO_LI_OilPainting_imageB.jpg</string>
+                <key>ANSWER</key>
+                <string>PAINTING</string>
+            </dict>
+            <key>7</key>
+            <dict>
+                <key>NAME</key>
+                <string>Oceania Art Glass Vase</string>
+                <key>IMAGE</key>
+                <string>res/Level_Image/FL_MA_LI_Vase2_imageB.jpg</string>
+                <key>ANSWER</key>
+                <string>VASE</string>
+            </dict>
+            <key>8</key>
+            <dict>
+                <key>NAME</key>
+                <string>VNDA VELA Women's Lounge Pant Camo</string>
+                <key>IMAGE</key>
+                <string>res/Level_Image/FL_ZO_LI_WomensPantCamo_imageB.JPG</string>
+                <key>ANSWER</key>
+                <string>PANTS</string>
+            </dict>
+            <key>9</key>
+            <dict>
+                <key>NAME</key>
+                <string>Fine Mod Imports Talix Counter Stool</string>
+                <key>IMAGE</key>
+                <string>res/Level_Image/20_FL_ZO_SH_LI_MetalChair_imageB.jpg</string>
+                <key>ANSWER</key>
+                <string>STOOL</string>
+            </dict>
+            <key>10</key>
+            <dict>
+                <key>NAME</key>
+                <string>20.0 Megapixel Duo2 Dual-Screen Waterproof Digital Camera</string>
+                <key>IMAGE</key>
+                <string>res/Level_Image/11_FL_SH_LI_DigitalCamera_imageC.jpg</string>
+                <key>ANSWER</key>
+                <string>CAMERA</string>
+            </dict>
+            <key>11</key>
+            <dict>
+                <key>NAME</key>
+                <string>Fine Mod Imports Wire Arm Chair</string>
+                <key>IMAGE</key>
+                <string>res/Level_Image/FL_ZO_LI__ArmChair_imageC.jpg</string>
+                <key>ANSWER</key>
+                <string>CHAIR</string>
+            </dict>
+            <key>12</key>
+            <dict>
+                <key>NAME</key>
+                <string>Fine Mod Imports Patterned Rocker Arm Chair</string>
+                <key>IMAGE</key>
+                <string>res/Level_Image/17_FL_ZO_SH_LI_PatternedChair_imageC.jpg</string>
+                <key>ANSWER</key>
+                <string>ROCKER</string>
+            </dict>
+            <key>13</key>
+            <dict>
+                <key>NAME</key>
+                <string>Fine Mod Imports Spark Hanging Chandelier, Silver</string>
+                <key>IMAGE</key>
+                <string>res/Level_Image/19_FL_SH_ZO_LI_Light_imageC.jpg</string>
+                <key>ANSWER</key>
+                <string>LIGHT</string>
+            </dict>
+            <key>14</key>
+            <dict>
+                <key>NAME</key>
+                <string>Fine Mod Imports Pearl Table Lamp, Mother of Pearl</string>
+                <key>IMAGE</key>
+                <string>res/Level_Image/15_FL_SH_ZO_LI_TableLamp_imageC.jpg</string>
+                <key>ANSWER</key>
+                <string>LAMP</string>
+            </dict>
+            <key>15</key>
+            <dict>
+                <key>NAME</key>
+                <string>Fine Mod Imports Cube Mirror</string>
+                <key>IMAGE</key>
+                <string>res/Level_Image/FL_ZO_LI_CubeMirror_imageC.jpg</string>
+                <key>ANSWER</key>
+                <string>MIRROR</string>
+            </dict>
+            <key>16</key>
+            <dict>
+                <key>NAME</key>
+                <string>Fine Mod Imports Sculpt Coffee Table</string>
+                <key>IMAGE</key>
+                <string>res/Level_Image/FL_ZO_LI_WalnutTable_imageC.jpg</string>
+                <key>ANSWER</key>
+                <string>TABLE</string>
+            </dict>
+            <key>17</key>
+            <dict>
+                <key>NAME</key>
+                <string>DAP Xhose Pro Extreme</string>
+                <key>IMAGE</key>
+                <string>res/Level_Image/32_FL_SH_ZO_LI_DAPXhorse_image.jpg</string>
+                <key>ANSWER</key>
+                <string>XHOSE</string>
+            </dict>
+            <key>18</key>
+            <dict>
+                <key>NAME</key>
+                <string>Sobokawa Pillow</string>
+                <key>IMAGE</key>
+                <string>res/Level_Image/33_FL_SH_ZO_LI_Sobokawa_image.jpg</string>
+                <key>ANSWER</key>
+                <string>PILLOW</string>
+            </dict>
+            <key>19</key>
+            <dict>
+                <key>NAME</key>
+                <string>LAPPAK COSEMTIC BAG</string>
+                <key>IMAGE</key>
+                <string>res/Level_Image/26_FL_SH_ZO_LI_Lappak_image.jpg</string>
+                <key>ANSWER</key>
+                <string>BAG</string>
+            </dict>
+            <key>20</key>
+            <dict>
+                <key>NAME</key>
+                <string>LAPPAK LUNCH BAG</string>
+                <key>IMAGE</key>
+                <string>res/Level_Image/27_FL_SH_ZO_LI_Lappak_image.jpg</string>
+                <key>ANSWER</key>
+                <string>BAG</string>
+            </dict>
+            <key>21</key>
+            <dict>
+                <key>NAME</key>
+                <string>VACNGROOM</string>
+                <key>IMAGE</key>
+                <string>res/Level_Image/31_FL_SH_ZO_LI_VacNGroom_image.jpg</string>
+                <key>ANSWER</key>
+                <string>VACUUM</string>
+            </dict>
+            <key>22</key>
+            <dict>
+                <key>NAME</key>
+                <string>Vidalia Chop Wizard</string>
+                <key>IMAGE</key>
+                <string>res/Level_Image/24_FL_SH_ZO_LI_VidaliaChop_image.jpg</string>
+                <key>ANSWER</key>
+                <string>CHOPPER</string>
+            </dict>
+            <key>23</key>
+            <dict>
+                <key>NAME</key>
+                <string>EZ JUMPER</string>
+                <key>IMAGE</key>
+                <string>res/Level_Image/36_FL_ZO_LI_EZJumper_image.jpg</string>
+                <key>ANSWER</key>
+                <string>JUMPER</string>
+            </dict>
+            <key>24</key>
+            <dict>
+                <key>NAME</key>
+                <string>Squeeze Reliever</string>
+                <key>IMAGE</key>
+                <string>res/Level_Image/37_FL_ZO_LI_Squeeze_image.jpg</string>
+                <key>ANSWER</key>
+                <string>MASSAGER</string>
+            </dict>
+            <key>25</key>
+            <dict>
+                <key>NAME</key>
+                <string>ExerSeat</string>
+                <key>IMAGE</key>
+                <string>res/Level_Image/29_FL_LI_ExtraSeat_image.jpg</string>
+                <key>ANSWER</key>
+                <string>BIKE</string>
+            </dict>
+        </dict>
+    </dict>
+</plist>
