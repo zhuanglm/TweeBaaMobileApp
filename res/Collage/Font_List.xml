@@ -1,0 +1,88 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<FontLists>
+  <Font>
+    <Name>80db</Name>
+    <File>fonts/80db.ttf</File>
+    <Description></Description>
+  </Font>
+  <Font>
+    <Name>A Damn Mess</Name>
+    <File>fonts/A Damn Mess.ttf</File>
+    <Description></Description>
+  </Font>
+  <Font>
+    <Name>baidu</Name>
+    <File>fonts/baidu.ttf</File>
+    <Description></Description>
+  </Font>
+  <Font>
+    <Name>ASMAN</Name>
+    <File>fonts/ASMAN.ttf</File>
+    <Description></Description>
+  </Font>
+  <Font>
+    <Name>colour</Name>
+    <File>fonts/colour.ttf</File>
+    <Description></Description>
+  </Font>
+  <Font>
+    <Name>contrast</Name>
+    <File>fonts/contrast.ttf</File>
+    <Description></Description>
+  </Font>
+  <Font>
+    <Name>fast99</Name>
+    <File>fonts/fast99.ttf</File>
+    <Description></Description>
+  </Font>
+  <Font>
+    <Name>froufrou</Name>
+    <File>fonts/froufrou.ttf</File>
+    <Description></Description>
+  </Font>
+  <Font>
+    <Name>horrendo</Name>
+    <File>fonts/horrendo.ttf</File>
+    <Description></Description>
+  </Font>
+  <Font>
+    <Name>leadcoat</Name>
+    <File>fonts/leadcoat.ttf</File>
+    <Description></Description>
+  </Font>
+  <Font>
+    <Name>Marker Felt</Name>
+    <File>fonts/Marker Felt.ttf</File>
+    <Description></Description>
+  </Font>
+  <Font>
+    <Name>sewer</Name>
+    <File>fonts/sewer.ttf</File>
+    <Description></Description>
+  </Font>
+  <Font>
+    <Name>stocky</Name>
+    <File>fonts/stocky.ttf</File>
+    <Description></Description>
+  </Font>
+  <Font>
+    <Name>valuoldcaps</Name>
+    <File>fonts/valuoldcaps.ttf</File>
+    <Description></Description>
+  </Font>
+  <Font>
+    <Name>Humanst521 BT</Name>
+    <File>fonts/Humanst521 BT.ttf</File>
+    <Description></Description>
+  </Font>
+  <Font>
+    <Name>HUM521B</Name>
+    <File>fonts/HUM521B.TTF</File>
+    <Description></Description>
+  </Font>
+  <Font>
+    <Name>ygyqmt</Name>
+    <File>fonts/ygyqianmt.ttf</File>
+    <Description></Description>
+  </Font>
+</FontLists>
