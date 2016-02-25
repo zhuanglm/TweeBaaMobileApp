@@ -1,0 +1,204 @@
+//===========Tweebaa==============
+//Collage_Template.cpp	--Jun 23 2015	
+//Version 1.0 by Raymond Zhuang at Toronto
+// last modified at
+
+#include "Collage_Template.h"
+
+
+CollageTemplateList::CollageTemplateList(void)
+{
+}
+
+CollageTemplateList::~CollageTemplateList(void)
+{
+}
+
+CollageTemplateList * CollageTemplateList::ParseXMLWithfile(const char *fileName)
+{
+	CollageTemplateList *pXMLParser = new CollageTemplateList();
+	sctTempList	sctTemp;
+	
+	//std::string filePath = FileUtils::getInstance()->getWritablePath() +fileName;
+	std::string filePath = CCFileUtils::sharedFileUtils()->fullPathForFilename(fileName);
+
+	tinyxml2::XMLDocument *pDoc = new tinyxml2::XMLDocument();
+	//XMLError errorId = pDoc->LoadFile(filePath.c_str());
+
+	ssize_t size;	 
+	auto pBuffer = CCFileUtils::sharedFileUtils()->getFileData(filePath.c_str(), "rb", &size);
+	if (pBuffer) {
+		//Add by Long to verify it
+		pBuffer[size - 1] = '\0';
+		XMLError errorId = pDoc->Parse((const char*)pBuffer);
+
+		if (errorId != 0)	//xml格式错误
+		{
+			log("%s error: %d", filePath.c_str(), errorId);
+			return NULL;
+		}
+
+		XMLElement *rootEle = pDoc->RootElement();	//get <CollageTemplates>
+		//log("root_name = %s", rootEle->Value());
+
+		//获取根节点属性
+		//const XMLAttribute *attribute = rootEle->FirstAttribute();
+		//打印节点属性名和值
+		//log("attribute_name = %s,attribute_value = %s", attribute->Name(), attribute->Value());
+
+
+		XMLElement *templateEle = rootEle->FirstChildElement();
+		string st;
+		while (templateEle) {
+			XMLElement *idEle = templateEle->FirstChildElement();
+			if (idEle == NULL)
+			{
+				templateEle = templateEle->NextSiblingElement();
+				continue;
+			}
+			if (idEle->GetText())
+				strcpy(sctTemp.uid, idEle->GetText());
+
+			XMLElement *imageEle = idEle->NextSiblingElement();
+			if (imageEle == NULL)
+			{
+				templateEle = templateEle->NextSiblingElement();
+				continue;
+			}
+			if (imageEle->GetText())
+				strcpy(sctTemp.strListImage, imageEle->GetText());
+
+			//==========================以下不是必须字段==================
+			XMLElement *TitleEle = imageEle->NextSiblingElement();
+			if (TitleEle == NULL)
+			{
+				if (pXMLParser->vTemplate.empty())
+					sctTemp.id = 0;
+				else
+				{
+					sctTemp.id = pXMLParser->vTemplate.back().id;
+					sctTemp.id++;
+				}
+				//准备放入模板内容 sctTemp.strContent;
+				////////////////////////////////////
+				pXMLParser->vTemplate.push_back(sctTemp);
+				// next one
+				templateEle = templateEle->NextSiblingElement();
+				continue;
+			}
+			if (TitleEle->GetText())
+				strcpy(sctTemp.sTitle, TitleEle->GetText());
+
+			XMLElement *FourthEle = TitleEle->NextSiblingElement();
+			if (FourthEle == NULL)
+			{
+				if (pXMLParser->vTemplate.empty())
+					sctTemp.id = 0;
+				else
+				{
+					sctTemp.id = pXMLParser->vTemplate.back().id;
+					sctTemp.id++;
+				}
+
+				pXMLParser->vTemplate.push_back(sctTemp);
+				// next one
+				templateEle = templateEle->NextSiblingElement();
+				continue;
+			}
+			if (FourthEle->GetText())
+				strcpy(sctTemp.sFourthEle, FourthEle->GetText());
+
+			XMLElement *FifthEle = FourthEle->NextSiblingElement();
+			if (FifthEle == NULL)
+			{
+				if (pXMLParser->vTemplate.empty())
+					sctTemp.id = 0;
+				else
+				{
+					sctTemp.id = pXMLParser->vTemplate.back().id;
+					sctTemp.id++;
+				}
+
+				pXMLParser->vTemplate.push_back(sctTemp);
+				// next one
+				templateEle = templateEle->NextSiblingElement();
+				continue;
+			}
+			if (FifthEle->GetText())
+				strcpy(sctTemp.sFifthEle, FifthEle->GetText());
+
+			XMLElement *SixthEle = FifthEle->NextSiblingElement();
+			if (SixthEle == NULL)
+			{
+				if (pXMLParser->vTemplate.empty())
+					sctTemp.id = 0;
+				else
+				{
+					sctTemp.id = pXMLParser->vTemplate.back().id;
+					sctTemp.id++;
+				}
+
+				pXMLParser->vTemplate.push_back(sctTemp);
+				// next one
+				templateEle = templateEle->NextSiblingElement();
+				continue;
+			}
+
+			XMLElement *SeventhEle = SixthEle->NextSiblingElement();
+			if (SeventhEle == NULL)
+			{
+				if (pXMLParser->vTemplate.empty())
+					sctTemp.id = 0;
+				else
+				{
+					sctTemp.id = pXMLParser->vTemplate.back().id;
+					sctTemp.id++;
+				}
+
+				pXMLParser->vTemplate.push_back(sctTemp);
+				// next one
+				templateEle = templateEle->NextSiblingElement();
+				continue;
+			}
+
+			XMLElement *EighthEle = SeventhEle->NextSiblingElement();
+			if (EighthEle == NULL)
+			{
+				if (pXMLParser->vTemplate.empty())
+					sctTemp.id = 0;
+				else
+				{
+					sctTemp.id = pXMLParser->vTemplate.back().id;
+					sctTemp.id++;
+				}
+
+				pXMLParser->vTemplate.push_back(sctTemp);
+				// next one
+				templateEle = templateEle->NextSiblingElement();
+				continue;
+			}
+			//log("Elements ID= %s IMAGE= %s", idEle->GetText(),imageEle->GetText());
+
+			if (pXMLParser->vTemplate.empty())
+				sctTemp.id = 0;
+			else
+			{
+				sctTemp.id = pXMLParser->vTemplate.back().id;
+				sctTemp.id++;
+			}
+
+			pXMLParser->vTemplate.push_back(sctTemp);
+			// next one
+			templateEle = templateEle->NextSiblingElement();
+		}
+
+		delete pDoc;
+		pXMLParser->autorelease();
+		return pXMLParser;
+	}
+	 else{
+
+		 return nullptr;
+	 }
+
+}

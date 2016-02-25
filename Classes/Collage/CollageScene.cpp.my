@@ -1,0 +1,263 @@
+//===========Tweebaa==============
+//CollageScenen.cpp	--Jun 23 2015	
+//Version 1.0 by Raymond Zhuang at Toronto
+// last modified at
+
+#include "CollageScene.h"
+#include "cocostudio/CocoStudio.h"
+#include "ui/CocosGUI.h"
+#include "ChooseLayer.h"
+
+USING_NS_CC;
+
+using namespace cocostudio::timeline;
+
+
+
+Scene* CollageScene::createScene()
+{
+    // 'scene' is an autorelease object
+    auto scene = Scene::create();
+    
+    // 'layer' is an autorelease object
+    auto layer = CollageScene::create();
+
+    // add layer as a child to scene
+    scene->addChild(layer);
+
+    // return the scene
+    return scene;
+}
+void CollageScene::LoadXMLFiles(float dt){
+    //loading template files
+    char filenamebuffer[80], sUrl[128];
+    string filePath,fileName;
+    sctPicList	fileInfo;
+    int	i;
+    
+    filePath = FileUtils::getInstance()->getWritablePath();
+    
+    /******************************************************
+     //loading template//////////
+     strcpy(sUrl,Req_URL);
+     strcat(sUrl,Template_List);
+     fileName = filePath + "Template_List.xml";
+     //http_connect->HttpReqToCache(sUrl,"Design_Temp_Time",fileName.c_str());
+     http_connect->CurlReq(sUrl,fileName.c_str());
+     
+     //loading image from template
+     //pCTL=CollageTemplateList::ParseXMLWithfile("Collage_Templates.xml");
+     pCTL=CollageTemplateList::ParseXMLWithfile(fileName.c_str());
+     if(!pCTL)
+     {
+     log("%s file format error",fileName.c_str());
+     exit(0);
+     }
+     
+     i=0;
+     for(auto vT: pCTL->vTemplate )
+     {
+     i++;
+     if(i==MAX_CacheFile)	break;				//装载的缓冲文件个数
+     
+     
+     //sprintf(filenamebuffer,"imgbuf%02d%s",i,&vT.strListImage[strlen(vT.strListImage)-4]); //后缀
+     sprintf(filenamebuffer,"$T_%s",&vT.strListImage);
+     
+     log("ID=%d Image=%s type=%s",vT.id,vT.strListImage,filenamebuffer);
+     fileName = filePath +filenamebuffer;
+     //strFileName[i-1]=fileName;
+     
+     HttpConnection::v_template_cache_filename.push_back(fileName);	//save cache filename for BrowseLayer
+     
+     
+     //判断文件是否存在
+     //ifstream ifs(filePath.c_str());
+     ifstream ifs(fileName);
+     if(!ifs)
+     {
+     log("file:%s isn't existed",fileName.c_str());
+     strcpy(sUrl,Template_URL);
+     strcat(sUrl,vT.strListImage);
+     http_connect->HttpReqToCache(sUrl,vT.strListImage,fileName.c_str());
+     }
+     
+     }
+     **********************************************************/
+    ////////////////////////////////loading design//////////
+    strcpy(sUrl,Req_URL);
+    strcat(sUrl,Design_Template_Time);
+    
+    fileName = filePath + "Design_Temp_Time.xml";
+    http_connect->CurlReq(sUrl,fileName.c_str());
+    
+    //loading image from template
+    pCTL=CollageTemplateList::ParseXMLWithfile(fileName.c_str());
+    if(!pCTL)
+    {
+        log("%s file format error",fileName.c_str());
+        exit(0);
+    }
+    
+    i=0;
+    for(auto vT: pCTL->vTemplate )
+    {
+        i++;
+        if(i==MAX_CacheFile)	break;				//装载的缓冲文件个数
+        
+        
+        sprintf(filenamebuffer,"$D_%s",strrchr(vT.strListImage,'/')+1);
+        
+        fileName = filePath +filenamebuffer;
+        HttpConnection::v_design_time_cache_filename.push_back(fileName);	//save cache filename for BrowseLayer
+        
+        
+        //判断文件是否存在
+        ifstream ifs(fileName);
+        if(!ifs)
+        {
+            strcpy(sUrl,Design_URL);
+            strcat(sUrl,vT.strListImage);
+            http_connect->HttpReqToCache(sUrl,vT.strListImage,fileName.c_str());
+        }
+        
+    }
+    
+    ////////////////////////////////loading product//////////
+    /*  modify by long to load the product from live server since the test server have problem
+     strcpy(sUrl,Req_URL);
+     strcat(sUrl,Product_List);
+     */
+    strcpy(sUrl, Product_List);
+    //strcat(sUrl, Product_List);
+    
+    
+    fileName = filePath + "Product_List.xml";
+    http_connect->CurlReq(sUrl,fileName.c_str());
+    
+    //loading image from template
+    pCTL=CollageTemplateList::ParseXMLWithfile(fileName.c_str());
+    if(!pCTL)
+    {
+        log("%s file format error",fileName.c_str());
+        //Modify by Long
+        //
+        string sError = "load " + fileName + "file error";
+        cocos2d::MessageBox(sError.c_str(), "Load Error");
+        //return it back 2
+        auto scene = ChooseLayer::createScene();
+        //auto scene = CollageMainTab::createScene();
+        TransitionScene *transition = TransitionFade::create(1, scene);
+        Director::getInstance()->replaceScene(transition);
+        return;
+        //exit(0);
+    }
+    
+    i=0;
+    for(auto vT: pCTL->vTemplate )
+    {
+        i++;
+        if(i==MAX_CacheFile)	break;				//装载的缓冲文件个数
+        
+        sprintf(filenamebuffer,"$P_%s",strrchr(vT.strListImage,'/')+1);
+        fileInfo.cache_filename= filePath +filenamebuffer;
+        sprintf(fileInfo.uid,"P_%s",vT.uid);
+        fileInfo._filename=vT.strListImage;
+        fileInfo._objecttitle=vT.sTitle;
+        fileInfo._object4th=vT.sFourthEle;		//price
+        fileInfo._object5th=vT.sFifthEle;		//description
+        
+        fileInfo.id=vT.id;
+        
+        //HttpConnection::v_product_cache_filename.push_back(fileName);	//save cache filename for BrowseLayer
+        HttpConnection::v_product_info.push_back(fileInfo);	//save cache filename for BrowseLayer
+        
+        
+        //判断文件是否存在
+        ifstream ifs(fileInfo.cache_filename);
+        if(!ifs)
+        {
+            strcpy(sUrl,Product_URL);
+            strcat(sUrl,vT.strListImage);
+            http_connect->HttpReqToCache(sUrl,vT.strListImage,fileInfo.cache_filename.c_str());
+        }
+        
+    }
+    
+    ////////////////////////////////loading decoration//////////
+    strcpy(sUrl,Req_URL);
+    strcat(sUrl,Decoration_List);
+    
+    fileName = filePath + "Decoration_List.xml";
+    http_connect->CurlReq(sUrl,fileName.c_str());
+    
+    //loading image from template
+    pCTL=CollageTemplateList::ParseXMLWithfile(fileName.c_str());
+    if(!pCTL)
+    {
+        log("%s file format error",fileName.c_str());
+        exit(0);
+    }
+    
+    i=0;
+    for(auto vT: pCTL->vTemplate )
+    {
+        i++;
+        if(i-1==MAX_CacheFile)	break;				//装载的缓冲文件个数
+        
+        sprintf(filenamebuffer,"$E_%s",vT.strListImage);
+        
+        fileInfo.cache_filename= filePath +filenamebuffer;
+        sprintf(fileInfo.uid,"E_%s",vT.uid);
+        fileInfo._filename=vT.strListImage;
+        fileInfo.id=vT.id;
+        
+        //HttpConnection::v_decoration_cache_filename.push_back(fileName);	//save cache filename for BrowseLayer
+        HttpConnection::v_decoration_info.push_back(fileInfo);	//save cache filename for BrowseLayer
+        
+        
+        //判断文件是否存在
+        ifstream ifs(fileInfo.cache_filename);
+        if(!ifs)
+        {
+            strcpy(sUrl,Decoration_URL);
+            strcat(sUrl,vT.strListImage);
+            http_connect->HttpReqToCache(sUrl,vT.strListImage,fileInfo.cache_filename.c_str());
+        }
+        
+    }
+    auto rootNode = CSLoader::createNode("Collage/CollageScene.csb");
+    addChild(rootNode);
+    
+    mainMenu = new MainMenu(rootNode);
+    
+}
+// on "init" you need to initialize your instance
+bool CollageScene::init()
+{
+    //////////////////////////////
+    // 1. super init first
+    if ( !Layer::init() )
+    {
+        return false;
+    }
+    
+    scheduleOnce(schedule_selector(CollageScene::LoadXMLFiles), 1.0f );
+    
+    
+    
+
+
+
+	return true;
+}
+
+CollageScene::CollageScene(void)
+{
+	http_connect = new HttpConnection();
+}
+CollageScene::~CollageScene(void)
+{
+	delete mainMenu;
+	delete http_connect;
+}
